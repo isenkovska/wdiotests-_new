@@ -42,12 +42,12 @@ describe('Auth', () => {
 
     });
 
-    // it('error appears, when data deleted from password field ',  () => {
-    //     LoginPage.setPassword('egyu');
-    //     LoginPage.clearPasswordField();
-    //     LoginPage.errorAppeared();
-    //
-    // });
+    it('password field is required',  () => {
+        LoginPage.setPassword('egyu');
+        LoginPage.emptyPasswordInput();
+        LoginPage.PasswordRequiredError();
+
+    });
 });
 
 
