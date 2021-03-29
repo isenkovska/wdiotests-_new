@@ -21,12 +21,12 @@ exports.config = {
     //
     specs: [
         // './test/specs/**/*.js'
-        './test/specs/navigation.spec.js'
+        './test/specs/**/*.js'
     ],
 
     // Patterns to exclude.
     "exclude": [
-        // 'path/to/excluded/files'
+        './test/specs/login.spec.js'
     ],
     //
     // ============
@@ -58,7 +58,11 @@ exports.config = {
         "maxInstances": 5,
         //
         "browserName": 'chrome',
-        "acceptInsecureCerts": true
+        "acceptInsecureCerts": true,
+        'goog:chromeOptions': {
+            args: ['--window-size=1280,720']
+        }
+
         // If outputDir is provided WebdriverIO can capture driver session logs
         // it is possible to configure which logTypes to include/exclude.
         // excludeDriverLogs: ['*'], // pass '*' to exclude all driver session logs
@@ -134,8 +138,6 @@ exports.config = {
     // The only one supported by default is 'dot'
     // see also: https://webdriver.io/docs/dot-reporter
     "reporters": ['spec'],
-
-
     
     //
     // Options to be passed to Mocha.

@@ -11,7 +11,6 @@ class CoursesPage extends PortalPage{
         expect(browser).toHaveUrlContaining('/course');
         expect(this.sectionHeader).toHaveText('Interactive Courses');
     }
-
 }
 
 export default new CoursesPage();
