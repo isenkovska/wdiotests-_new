@@ -7,7 +7,7 @@ class LoginPage extends Page {
     get buttonSubmit () { return $('.login-form-button'); }
     get errorToast () {return $('.ant-notification-notice-message');}
     get loginValidationError () {return $('//div[contains(@class, "ant-form-item-with-help")][.//input[@id="normal_login_email"]]//div[@role="alert"]\n')}
-
+    get passwordValidationError () {return $('//div[contains(@class, "ant-form-item-with-help")][.//input[@id="normal_login_password"]]//div[@role="alert"]\n')}
 
     open () {
         return super.open('/');
@@ -45,13 +45,16 @@ class LoginPage extends Page {
         expect(this.loginValidationError).toBeDisplayed();
         expect(this.loginValidationError.getText()).toEqual('Required');
     }
-    clearPasswordField () {
-        this.inputPassword.clearValue();
 
+    emptyPasswordInput () {
+        this.clearInput(this.inputPassword);
     }
 
+    PasswordRequiredError() {
+        expect(this.passwordValidationError).toBeDisplayed();
+        expect(this.passwordValidationError.getText()).toEqual('Required');
 
-
+    }
 }
 
 export default new LoginPage();

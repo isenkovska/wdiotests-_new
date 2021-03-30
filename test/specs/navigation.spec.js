@@ -1,9 +1,10 @@
 import MainPage from '../pageobjects/portal/main.portal.page';
 import CoursesPage from '../pageobjects/portal/courses.portal.page';
+import CardsPage from '../pageobjects/portal/cards.portal.page'
 
 describe ('Navigation', () => {
     before( () => {
-        browser.login('yurisl5@gmail.com', 'yfhrjnf');
+        browser.login('isenkovska@gmail.com', 'yfhrjnf243318');
     });
 
     beforeEach(() => {
@@ -14,4 +15,10 @@ describe ('Navigation', () => {
         MainPage.goToCourses();
         CoursesPage.isOpen();
     });
+
+    it('cards page opens', () => {
+        MainPage.goToCards();
+        CardsPage.isOpen();
+    });
+
 });
