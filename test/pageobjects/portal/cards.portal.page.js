@@ -9,7 +9,7 @@ class CardsPage extends PortalPage {
 
     isOpen() {
         expect(browser).toHaveUrlContaining('/flash');
-        expect(this.sectionHeader).toHaveText('Interview practice cards')
+        expect(this.sectionHeader).toHaveText('Interview practice cards');
     }
 }
 
