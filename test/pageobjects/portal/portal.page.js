@@ -6,6 +6,7 @@ export default class PortalPage extends Page {
     get LinkDiary() {return $('[data-qa="topmenu-Diary"]');}
     get LinkChallenges() {return $('[data-qa="topmenu-Challenges"]');}
 
+
     goToCourses() {
         this.LinkCourses.click();
     }

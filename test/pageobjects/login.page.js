@@ -8,9 +8,10 @@ class LoginPage extends Page {
     get errorToast () {return $('.ant-notification-notice-message');}
     get loginValidationError () {return $('//div[contains(@class, "ant-form-item-with-help")][.//input[@id="normal_login_email"]]//div[@role="alert"]\n')}
     get passwordValidationError () {return $('//div[contains(@class, "ant-form-item-with-help")][.//input[@id="normal_login_password"]]//div[@role="alert"]\n')}
+    get loginLink () {return}
 
     open () {
-        return super.open('/');
+        return super.open('/user/login');
     }
 
     setLogin (email) {

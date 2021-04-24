@@ -12,7 +12,7 @@ describe('Auth', () => {
 
     it('user logs in with valid data', () => {
         LoginPage.setLogin('yurisl5@gmail.com');
-        LoginPage.setPassword('yfhrjnf');
+        LoginPage.setPassword('yfhrjnf1');
         LoginPage.clickSubmitButton();
         ProfilePage.isOpen();
     });

@@ -3,8 +3,8 @@ module.exports = {
         './test/specs/**/*.js'
     ],
     exclude: [
-        //'./test/specs/navigation.spec.js',
-        './test/specs/login.spec.js'
+        './test/specs/navigation.spec.js',
+        //'./test/specs/login.spec.js'
     ],
 
     logLevel: 'info',
@@ -17,7 +17,10 @@ module.exports = {
     baseUrl: 'https://localcoding.us',
 
     framework: 'mocha',
-    reporters: ['spec'],
+    reporters: ['spec', ['allure', {
+        outputDir: 'allure-results',
+        disableWebdriverStepsReporting: true,
+    }]],
     mochaOpts: {
         require: ['@babel/register'],
         ui: 'bdd',

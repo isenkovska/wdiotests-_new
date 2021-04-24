@@ -10,5 +10,10 @@ module.exports = {
             LoginPage.clickSubmitButton();
             ProfilePage.isOpen();
         })
+    },
+    afterTest: function(test, context, { error, result, duration, passed, retries }) {
+        if (error) {
+            browser.takeScreenshot();
+        }
     }
 }
