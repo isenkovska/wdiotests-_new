@@ -53,8 +53,7 @@ class LoginPage extends Page {
 
     PasswordRequiredError() {
         expect(this.passwordValidationError).toBeDisplayed();
-        expect(this.passwordValidationError.getText()).toEqual('Required');
-
+        expect(this.passwordValidationError).toHaveText('Required');
     }
 }
 
