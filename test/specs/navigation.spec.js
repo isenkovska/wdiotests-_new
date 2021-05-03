@@ -5,7 +5,7 @@ import DiaryPage from '../pageobjects/portal/diary.portal.page';
 
 describe ('Navigation', () => {
     before( () => {
-        browser.login('isenkovska@gmail.com', 'yfhrjnf243318');
+        browser.login(process.env.LOGIN, process.env.PASSWORD);
     });
 
     beforeEach(() => {
@@ -19,6 +19,7 @@ describe ('Navigation', () => {
 
     it('cards page opens', () => {
         MainPage.goToCards();
+        browser.takeScreenshot();
         CardsPage.isOpen();
     });
 

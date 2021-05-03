@@ -4,7 +4,7 @@ orbs:
 jobs:
   build-and-test:
     docker:
-      - image: circleci/node:latest-browsers
+      - image: circleci/node:15.9.0-browsers
     steps:
       - checkout
       - node/install-packages
@@ -23,6 +23,14 @@ jobs:
             test -d allure-previous && cp -r allure-previous/allure-report/history allure-results || echo "Previous report directory not found"
             npm run report:generate
             zip -r allure-report.zip allure-report
+      run:
+        name: Run tests
+        command: |
+          npm run test:firefox:headless
+          ls -la
+          test -d allure-previous && cp -r allure-previous/allure-report/history allure-results || echo "Previous report directory not found"
+          npm run report:generate
+          zip -r allure-report.zip allure-report
       - run:
           when: on_fail
           name: Generate fail results
