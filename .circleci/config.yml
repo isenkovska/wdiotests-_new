@@ -23,14 +23,6 @@ jobs:
             test -d allure-previous && cp -r allure-previous/allure-report/history allure-results || echo "Previous report directory not found"
             npm run report:generate
             zip -r allure-report.zip allure-report
-      run:
-        name: Run tests
-        command: |
-          npm run test:firefox:headless
-          ls -la
-          test -d allure-previous && cp -r allure-previous/allure-report/history allure-results || echo "Previous report directory not found"
-          npm run report:generate
-          zip -r allure-report.zip allure-report
       - run:
           when: on_fail
           name: Generate fail results
@@ -40,6 +32,7 @@ jobs:
             zip -r allure-report.zip allure-report
       - store_artifacts:
           path: allure-report.zip
+
 workflows:
   commit:
     jobs:
