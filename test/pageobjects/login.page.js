@@ -34,8 +34,12 @@ class LoginPage extends Page {
         expect(this.errorToast).toBeDisplayed();
     }
 
-    notValidEmailAppeared () {
-        expect(this.loginValidationError.getText()).toEqual('\'email\' is not a valid email');
+    // notValidEmailAppeared () {
+    //     expect(this.loginValidationError.getText()).toEqual('\'email\' is not a valid email');
+    // }
+    notValidEmailAppeared() {
+        expect(this.loginValidationError).toBeDisplayed();
+        expect(this.loginValidationError).toHaveText('\'email\' is not a valid email');
     }
 
     emptyLoginInput () {

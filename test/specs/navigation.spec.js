@@ -19,7 +19,6 @@ describe ('Navigation', () => {
 
     it('cards page opens', () => {
         MainPage.goToCards();
-        browser.takeScreenshot();
         CardsPage.isOpen();
     });
 
