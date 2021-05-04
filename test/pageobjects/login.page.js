@@ -1,6 +1,5 @@
 import Page from './page';
 
-
 class LoginPage extends Page {
     get inputUsername () { return $('#normal_login_email'); }
     get inputPassword () { return $('#normal_login_password'); }
@@ -8,56 +7,56 @@ class LoginPage extends Page {
     get errorToast () {return $('.ant-notification-notice-message');}
     get loginValidationError () {return $('//div[contains(@class, "ant-form-item-with-help")][.//input[@id="normal_login_email"]]//div[@role="alert"]\n')}
     get passwordValidationError () {return $('//div[contains(@class, "ant-form-item-with-help")][.//input[@id="normal_login_password"]]//div[@role="alert"]\n')}
-    get loginLink () {return}
 
-    open () {
+
+    async open () {
         return super.open('/user/login');
     }
 
-    setLogin (email) {
-        this.inputUsername.setValue(email);
+    async setLogin (email) {
+        return (await this.inputUsername).setValue(email);
     }
 
-    setPassword (password) {
-        this.inputPassword.setValue(password);
+    async setPassword (password) {
+        return (await this.inputPassword).setValue(password);
     }
 
-    clickSubmitButton () {
-        this.buttonSubmit.click();
+    async clickSubmitButton () {
+        return (await this.buttonSubmit).click();
     }
 
-    submitButtonIsDisabled() {
-        expect(this.buttonSubmit).toBeDisabled();
+    async submitButtonIsDisabled() {
+        return expect(this.buttonSubmit).toBeDisabled();
     }
 
-    errorToastAppeared () {
-        expect(this.errorToast).toBeDisplayed();
+    async errorToastAppeared () {
+        return expect(this.errorToast).toBeDisplayed();
     }
 
     // notValidEmailAppeared () {
     //     expect(this.loginValidationError.getText()).toEqual('\'email\' is not a valid email');
     // }
-    notValidEmailAppeared() {
-        expect(this.loginValidationError).toBeDisplayed();
-        expect(this.loginValidationError).toHaveText('\'email\' is not a valid email');
+    async notValidEmailAppeared() {
+        await expect(this.loginValidationError).toBeDisplayed();
+        await expect(this.loginValidationError).toHaveText('\'email\' is not a valid email');
     }
 
-    emptyLoginInput () {
-       this.clearInput(this.inputUsername);
+    async emptyLoginInput () {
+       return this.clearInput(await this.inputUsername);
     }
 
-    loginRequiredError () {
-        expect(this.loginValidationError).toBeDisplayed();
-        expect(this.loginValidationError.getText()).toEqual('Required');
+    async loginRequiredError () {
+        await expect(this.loginValidationError).toBeDisplayed();
+        await expect(this.loginValidationError).toHaveText('Required');
     }
 
-    emptyPasswordInput () {
-        this.clearInput(this.inputPassword);
+    async emptyPasswordInput () {
+        return this.clearInput(await this.inputPassword);
     }
 
-    PasswordRequiredError() {
-        expect(this.passwordValidationError).toBeDisplayed();
-        expect(this.passwordValidationError).toHaveText('Required');
+    async PasswordRequiredError() {
+        await expect(this.passwordValidationError).toBeDisplayed();
+        await expect(this.passwordValidationError).toHaveText('Required');
     }
 }
 
